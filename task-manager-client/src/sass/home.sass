@@ -1,0 +1,259 @@
+.user-panel    
+    position: relative
+    //padding: 12px
+    +supersm
+        margin-left: 0
+    +sm
+        margin-left: 0
+    +md
+        margin-left: $side-panel-w
+    +lg
+        margin-left: $side-panel-w
+
+.user-panel__registers-content
+    border-left: 1px solid $invisible-gray
+
+.user-panel__register
+    background: $invisible-gray
+    width: 100%
+    cursor: pointer    
+    
+.user-panel__content_registers
+    li
+        margin: 10px 0
+        background: $oven
+        color: white
+        border-radius: 0
+        border-radius: 50px
+        
+.user-panel__task__ddl
+    position: absolute
+    right: 12px
+    font-weight: 700
+    padding: 6px
+    border-radius: 8px
+    top: 50%
+    transform: translate(0, -50%)
+    p
+        font-size: 12px
+        position: relative
+        margin: 0
+        color: $invisible-gray
+
+.user-panel__task__ddl_color
+    color: $main-color
+    background: $back-color
+    font-size: 8px
+    right: 0
+    padding: 2px 4px
+
+.user-panel__content__tasks
+    position: relative
+    font-size: 12px
+    top: 0
+    margin-top: 0
+    padding-top: 0
+    float: none
+    &:before
+        //content: ''
+        position: fixed
+        width: 100%
+        height: 100%
+        pointer-events: none
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 10%, rgba(255,255,255,1))
+        z-index: 10
+
+#tasks-scrollbar
+    top: 0
+#tasks-scrollbar::-webkit-scrollbar-track
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1)
+    border-radius: 0
+    background-color: white
+#tasks-scrollbar::-webkit-scrollbar
+    width: 3px
+    background-color: white
+#tasks-scrollbar::-webkit-scrollbar-thumb
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.1)
+    background-color: $invisible-gray
+    background-color: $main-color
+
+.user-panel__content
+    color: #655643
+    label
+        margin-bottom: 0
+    ul
+        list-style-type: none
+        padding: 0
+
+.user-panel__content__header
+    display: block
+    position: relative
+    h2
+        color: $oven
+        padding: 16px 0
+        font-weight: 700
+        font-size: 16px
+        text-transform: uppercase
+        margin: 0
+
+.user-panel__checkbox-control
+    position: absolute
+    line-height: 1
+    float: left
+    width: 30px
+    top: 50%
+    transform: translate(0, -50%)
+
+.user-panel__task-data
+    margin-right: 80px
+
+.user-panel__task-name
+    position: relative
+    padding-left: 12px
+    top: 50%
+    transform: translate(0, -50%)
+    vertical-align: middle
+    font-size: 14px
+    cursor: pointer
+    font-weight: 500
+
+.user-panel__task_checkbox
+    position: relative
+    top: 1px
+    width: 24px
+    height: 24px
+    border: 2px solid $invisible-gray
+    border-radius: 5px
+    vertical-align: middle
+    transition: background .1s ease
+    cursor: pointer
+    &:after
+        content: ''
+        position: absolute
+        top: 1px
+        left: 5px
+        width: 9px
+        height: 14px
+        opacity: 0
+        transform: rotate(45deg) scale(0)
+        border-right: 2px solid white
+        border-bottom: 2px solid white
+        transform: all .3s ease
+        transition-delay: .15s
+
+.user-panel__task__item
+    position: relative
+    vertical-align: middle
+    cursor: pointer
+
+.user-panel__task__label
+    position: relative
+    float: left
+    
+.user-panel__task
+    position: relative
+    width: 100%
+    padding: 8px
+    font-weight: 400
+    font-size: 12px
+    border-bottom: 1px solid $invisible-gray
+    border-right: 0
+    border-left: 0
+    &:hover
+        .user-panel__buttons
+            visibility: visible
+            opacity: 1
+            transition: all .3s ease
+
+.user-panel__buttons
+    position: relative
+    visibility: hidden
+    opacity: 0
+    transition: all .3s ease
+    color: $oven
+
+.user-panel__action-btn
+    position: relative
+
+.user-panel__task__action-btn
+    .fa
+        cursor: pointer
+
+.user-panel__task__tags
+    margin-left: 38px
+
+.user-panel__task__tag
+    font-size: 8px
+    padding: 2px 5px
+    vertical-align: middle
+    margin: 2px
+    color: white
+    border-radius: 4px
+    text-transform: uppercase
+    font-weight: 700
+    letter-spacing: 1px
+
+input[type=checkbox]:checked ~ .user-panel__task_checkbox
+    border-color: transparent
+    background: $main-color
+    animation: jelly .6s ease
+    &:after
+        opacity: 1
+        transform: rotate(45deg) scale(1)
+
+.hidden-cbx
+    display: none !important
+
+.user-panel__task_archivized
+  
+
+@keyframes jelly
+    from
+        transform: scale(1, 1) 
+    30%
+        transform: scale(1.15, 0.85) 
+    40%
+        transform: scale(0.85, 1.15) 
+    50%
+        transform: scale(1.05, 0.75) 
+    65%
+        transform: scale(0.85, 0.95) 
+    75%
+        transform: scale(0.95, 0.85) 
+    to
+        transform: sacle(1, 1)
+
+.user-panel__operation-bar    
+    color: $first-font
+    text-align: left
+    border-bottom: 1px solid $invisible-gray
+    margin: 32px
+    span
+        margin-right: 32px
+        cursor: pointer
+    i
+        font-size: 12px
+        margin-right: 6px
+        padding: 6px
+        border: 2px solid $invisible-gray
+
+.user-panel__column 
+    float: left
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: 700
+
+.user-panel__empty-info
+    width: 100%
+    text-align: center
+    color: $invisible-gray
+    font-size: 24px
+    font-weight: 700
+    h1
+
+.user-panel__icon
+    color: $main-color
+
+.user-panel__container
+    padding: 12px
+    

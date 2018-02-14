@@ -1,0 +1,49 @@
+<!--<div class="task-editor col-md-4">
+  <h1>Zadanie</h1>
+  <form action="form" (ngSubmit)="f.form.valid && homeTasks.addTask(model)" #f="ngForm" novalidate>
+    <div class="form-group input-form__container">
+      <input type="text" class="form-control input-form__controller input-form__controller_input" name="name" [(ngModel)]="model.name" #name="ngModel" required/>
+      <label for="name" class="input-form__controller input-form__controller_label">Name</label>
+    </div>
+    <div class="form-group input-form__container">
+        <label for="deadline" class="input-form__controller">Deadline</label>
+        <input type="date" class="form-control input-form__controller input-form__controller_input" name="deadline" [(ngModel)]="model.deadline" #deadline="ngModel" required/>
+    </div>
+    <div class="form-group input-form__container">
+      <select class="form-control input-form__controller input-form__controller_input" name="taskRegisterID" [(ngModel)]="model.taskRegisterID" #taskRegisterID="ngModel">
+        <option *ngFor="let register of this.registersList.userTasksRegisters" [ngValue]="register.id">
+          {{ register.name }} {{ register.id }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group input-form__container">
+      <button class="btn input-form__controller input-form__controller_btn btn-danger">Dodaj zadanie</button>
+    </div>
+  </form>
+</div>-->
+    <form action="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+      <div class="row">
+      <div class="form-group input-form__container col-sm-12">
+        <input type="text" class="form-control input-form__controller input-form__controller_input" name="name" [(ngModel)]="this.userDataService.selectedTask.name" #name="ngModel" required/>
+        <label for="name" class="input-form__controller input-form__controller_label">Add new task to {{ userDataService.contenerLabel }}</label>
+      </div>
+      </div>
+      <div class="row">
+      <div class="form-group input-form__container col-sm-6">
+          <label for="deadline" class="input-form__controller">Deadline (optional)</label>
+          <input type="date" class="form-control input-form__controller input-form__controller_input" name="deadline" [(ngModel)]="userDataService.selectedTask.deadline" #deadline="ngModel"/>
+      </div>
+      <div class="form-group input-form__container col-sm-6">
+        <label for="taskRegisterID" class="input-form__controller">Register (optional)</label>
+        <select class="form-control input-form__controller input-form__controller_input" name="taskRegisterID" [(ngModel)]="userDataService.selectedTask.taskRegisterID" #taskRegisterID="ngModel">
+          <option *ngFor="let register of this.registersList.userTasksRegisters" [ngValue]="register.id">
+            {{ register.name }} {{ register.id }}
+          </option>
+        </select>
+      </div>
+      <!--<div class="form-group input-form__container">
+        <button type="submit" class="btn input-form__controller input-form__controller_btn btn-danger">Dodaj zadanie</button>
+        <button class="btn input-form__controller input-form__controller_btn btn-danger" (click)="resetForm(form)">Resetuj</button>
+      </div>-->
+      </div>
+    </form>

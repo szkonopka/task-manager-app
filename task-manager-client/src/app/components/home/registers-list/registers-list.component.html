@@ -1,0 +1,7 @@
+  
+    <li *ngFor="let register of userTasksRegisters" class="" (click)="userDataService.filterRegisterTasks(register)">
+      {{ register.name }} 
+      <div *ngIf="register.deadline != null"  class="user-panel__task__ddl user-panel__task__ddl_color">
+          {{ register.deadline | date : "d-M-y" }}
+      </div>
+    </li>

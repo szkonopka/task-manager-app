@@ -1,0 +1,68 @@
+<div class="user-panel">
+  <div class="">
+      <div class="user-panel__sidebar" id="user-panel">
+          <div class="user-panel__welcome">
+            <div class="user-panel__avatar">
+              <img src="http://i.pravatar.cc/50">
+            </div>  
+            <h3 [routerLink]="['profile']">
+              <strong>
+                {{ userDataService.currentUser.firstName }} 
+                {{ userDataService.currentUser.lastName }}
+              </strong>
+            </h3>      
+          </div>
+          <div class="user-panel__header">Nawigacja</div>
+          <ul class="user-panel__actions">
+            <li class="user-panel__list">
+                <div class="user-panel__list__item">
+                  <i class="user-panel__icon fa fa-inbox"></i><span class="user-panel__list__label">Zadania</span><i class="user-panel__caret fa fa-caret-right"></i>
+                </div> 
+                <ul class="user-panel__sublist">
+                  <li (click)="this.userDataService.filterAllTasks()">Do wykonania</li>
+                  <li (click)="this.userDataService.filterDoneTasks()">Wykonane</li>
+                  <li (click)="this.userDataService.filterAllTasks()">W trakcie</li>
+                </ul>
+            </li>
+            <li class="user-panel__list">
+                <div (click)="this.userDataService.filterAllTasks()" class="user-panel__list__item">
+                  <i class="user-panel__icon fa fa-list"></i><span class="user-panel__list__label">Rejestry zadaniowe  </span><i class="user-panel__caret fa fa-caret-right"></i>
+                </div>
+                <ul class="user-panel__sublist">
+                  <app-registers-list></app-registers-list>
+                </ul>
+            </li>
+            <li>
+              <i class="user-panel__icon fa fa-tag"></i><span class="user-panel__list__label">Tagi</span>
+            </li>
+            <li (click)="this.userDataService.filterArchivizedTasks()" class="user-panel__list__label"><i class="user-panel__icon fa fa-archive"></i><span class="user-panel__list__label">Archiwum</span></li>
+            <li class="user-panel__list__label"><b><a [routerLink]="['']">Wyloguj się</a></b></li>
+          </ul>
+      </div>      
+  </div>
+  <div class="user-panel__content">
+    <div class="row">
+        <div class="col-sm-12">
+          <app-quote></app-quote>  
+        </div>
+    </div>
+    <!--<div class="user-panel__operation-bar">
+      <div class="user-panel__crud-opts">
+        <span (click)="userDataService.changeEditorVisibility('task')"><i class="btn fa fa-plus"></i> Dodaj zadanie</span>
+        <span (click)="userDataService.changeEditorVisibility('taskRegister')"><i class="btn fa fa-plus"></i> Dodaj rejestr</span>  
+        <span (click)="userDataService.changeEditorVisibility('taskRegister')"><i class="btn fa fa-plus"></i> Dodaj tag</span>  
+      </div>
+    </div>-->
+    <app-home-tasks></app-home-tasks>
+  </div>
+</div>
+<div class="edit-controller" *ngIf="userDataService.editorOn" [@fadeInOut]>
+  <div class="edit-controller__close-btn" (click)="this.userDataService.changeEditorVisibility()">
+    <span></span>
+  </div>
+  <app-task-editor *ngIf="userDataService.taskEditorVisibility" [@fadeInOut]></app-task-editor>
+  <app-tasks-register-editor *ngIf="userDataService.tasksRegisterEditorVisibility" [@fadeInOut]></app-tasks-register-editor>
+</div>
+
+
+

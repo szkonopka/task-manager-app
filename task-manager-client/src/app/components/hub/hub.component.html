@@ -1,0 +1,24 @@
+<div class="landing-page">
+  <div class="hub row">
+  <div class="hub__left col-md-6">
+    <h1>Organise your work!</h1>
+    <p>Nulla facilisi. Ut egestas neque et turpis interdum, at tincidunt ex varius. Vivamus consectetur nec ligula nec aliquet. Praesent eget convallis metus. Pellentesque ac varius lorem. Sed blandit feugiat urna. Ut placerat lorem ipsum, at accumsan felis commodo nec. Etiam in semper tortor, eget pellentesque magna.</p>
+  </div>
+  <div class="hub__right col-md-6">
+    <div class="navbar navbar-default row hub__navbar">
+      <div class="container-fluid">
+        <div class="navbar-header hub-navbar__items">
+          <a class="" (click)="this.changeAuthComponent()">Register</a>
+          <a class="" (click)="this.changeAuthComponent()">Log in</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loginPanel" class="col-sm-12 hub__item login-component">
+      <app-login></app-login>
+    </div>
+    <div *ngIf="registerPanel" class="col-sm-12 hub__item register-component">
+      <app-register></app-register>
+    </div>
+  </div>
+  </div>
+</div>

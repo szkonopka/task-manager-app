@@ -1,0 +1,61 @@
+.input-form
+    height: 100%
+    position: relative
+    left: 50%    
+    transform: translate(-50%, 0)
+
+.input-form__controller
+    padding: 5px
+    
+
+.input-form__container  
+    position: relative
+    text-transform: uppercase
+    font-size: 12px
+    letter-spacing: 1px
+    margin: 24px 0
+    label
+        transition: all 0.2s ease
+    input, select
+        border-bottom: 2px solid $invisible-gray
+        &:active, &:focus
+            outline: none
+            box-shadow: 0 0 0
+            border-bottom: 2px solid $oven
+            background: none
+        &[data-empty="false"] + label,
+        &:valid + label,
+        &:focus + label
+            transform: translate3d(0, -16px, 0)
+            transition: all 0.2s ease
+            font-weight: 700
+
+.input-form__controller_btn
+    padding: 12px 24px
+    font-weight: 500
+    font-size: 12px
+    letter-spacing: 1px
+    text-transform: uppercase
+    color: white
+    background: linear-gradient(to left, $main-color, $second-color)
+    border-radius: 50px
+    &:hover
+        cursor: pointer
+
+.input-form__controller_label
+    pointer-events: none
+    position: absolute
+    bottom: 0px
+    transform: translate3d(0, 0px, 0)
+    font-weight: 300
+
+
+.input-form__controller_input
+    background: none
+    border: 0
+    border-radius: 0
+    
+
+
+   
+

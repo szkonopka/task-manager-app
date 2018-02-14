@@ -1,0 +1,29 @@
+<div>
+  <div class="col-sm-12 input-form">
+    <form action="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+      <div class="form-group input-form__container">
+        <input type="text" class="form-control input-form__controller input-form__controller_input" name="username" [(ngModel)]="model.username" #username="ngModel" required/>
+        <label for="username" class="input-form__controller input-form__controller_label">Username</label>
+      </div>
+      <div class="form-group input-form__container">
+        <input type="text" class="form-control input-form__controller input-form__controller_input" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required/>
+        <label for="firstName" class="input-form__controller input-form__controller_label">First name</label>
+      </div>
+      <div class="form-group input-form__container">
+        <input type="text" class="form-control input-form__controller input-form__controller_input" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required/>
+        <label for="lastName" class="input-form__controller input-form__controller_label">Last name</label>
+      </div>
+      <div class="form-group input-form__container">
+        <input type="text" class="form-control input-form__controller input-form__controller_input" name="email" [(ngModel)]="model.email" #email="ngModel" required/>
+        <label for="email" class="input-form__controller input-form__controller_label">Email</label>
+      </div>
+      <div class="form-group input-form__container">
+        <input type="password" class="form-control input-form__controller input-form__controller_input" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
+        <label for="password" class="input-form__controller input-form__controller_label">Password</label>
+      </div>
+      <div class="form-group input-form__container">
+        <button [disabled]="loading" class="btn input-form__controller input-form__controller_btn">Zarejestruj</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="task-editor col-md-4">
+    <h1>Rejestr zadaniowy</h1>
+    <form action="form" (ngSubmit)="f.form.valid && addTasksRegister()" #f="ngForm" novalidate>
+      <div class="form-group input-form__container">
+      <input type="text" class="form-control input-form__controller input-form__controller_input" name="name" [(ngModel)]="model.name" #name="ngModel" required/>
+      <label for="name" class="input-form__controller input-form__controller_label">Name</label>
+      </div>
+      <div class="form-group input-form__container">
+        <label for="deadline" class="input-form__controller">Deadline</label>
+        <input type="date" class="form-control input-form__controller input-form__controller_input" name="deadline" [(ngModel)]="model.deadline" #deadline="ngModel"/>
+      </div>
+      <div class="form-group input-form__container">
+          <button class="btn input-form__controller input-form__controller_btn btn-danger">Dodaj rejestr</button>
+      </div>
+    </form>
+  </div>

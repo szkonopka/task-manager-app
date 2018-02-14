@@ -1,0 +1,51 @@
+<div class="user-panel__container ">
+  <div class="user-panel__content__header">
+    <h2>{{ userDataService.contenerLabel }} ({{ (userTasks | activeTasks:userDataService.archive:userDataService.currentRegister:userDataService.done).length }})</h2>
+    
+  </div>
+  <div class="user-panel__content__adder">
+    <app-task-editor></app-task-editor>
+  </div>
+  <div class="user-panel__content__tasks" id="tasks-scrollbar">
+  <div *ngIf="userTasks == null || (userTasks | activeTasks:userDataService.archive:userDataService.currentRegister:userDataService.done).length === 0">
+      <div class="user-panel__empty-info">
+        <i class="far fa-frown"></i>
+        <p>Brak zadań w tym kontenerze, dodaj coś!</p>
+      </div>
+  </div>
+    <ul>
+      <li *ngFor="let task of userTasks | activeTasks:userDataService.archive:userDataService.currentRegister:userDataService.done" class="user-panel__task" >
+        <div *ngIf="task.deadline != null" class="user-panel__task__ddl">
+          <p>{{ task.deadline | date : "d-M-y" }}</p>
+        </div>
+        <div class="user-panel__task-data">
+          <label for="cbx{{task.id}}" class="user-panel__task_label">
+            <input *ngIf="task.isDone" type="checkbox" id="cbx{{task.id}}" class="hidden-cbx" (change)="setTaskStatus(task)" checked> 
+            <input *ngIf="!task.isDone" type="checkbox" id="cbx{{task.id}}" class="hidden-cbx" (change)="setTaskStatus(task)"> 
+            <label for="cbx{{task.id}}" class="user-panel__task_checkbox"></label>
+            <span class="user-panel__task-name">{{ task.name }}</span>
+          </label>          
+          <span class="user-panel__buttons">
+            <div class="btn user-panel__task__action-btn">
+              <span class="fa fa-remove" (click)="onDelete(task)" title="Usuń"></span>
+            </div>
+            <div class="btn user-panel__task__action-btn">
+              <span class="fa fa-edit" (click)="showTaskForEdit(task)" title="Edytuj"></span>
+            </div>    
+            <div class="btn user-panel__task__action-btn">
+              <span class="fa fa-tag" title="Nadaj tag"></span>
+            </div>    
+            <div class="btn user-panel__task__action-btn">
+              <span class="fa fa-flag" alt="Nadaj priorytet" title="Nadaj priorytet"></span>
+            </div>
+          </span>
+          <div class="user-panel__task__tags">
+            <span *ngFor="let tag of task.tags" class="user-panel__task__tag" [style.background]="tag.color">
+              {{ tag.name }}
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
